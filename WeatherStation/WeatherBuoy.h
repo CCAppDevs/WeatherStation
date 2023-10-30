@@ -15,5 +15,9 @@ public:
     void Register(IObserver& obs);
     void Unregister(IObserver& obs);
     void Notify();
+
+    // getters and setters
+    inline double GetCurrentTemp() { return CurrentTemp; }
+    void SetCurrentTemp(double temp);
 };
 

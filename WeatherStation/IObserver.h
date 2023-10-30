@@ -2,6 +2,6 @@
 class IObserver
 {
 public:
-	virtual void Update() = 0;
+	virtual void Update(double temp) = 0;
 };
 
