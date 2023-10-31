@@ -1,14 +1,20 @@
 #include "WeatherLogger.h"
 
-WeatherLogger::WeatherLogger(std::string filename)
+WeatherLogger::WeatherLogger(std::string filename) : IObserver()
 {
-	// open the file handle in a specific write mode (write at once, or append)
+	this->Filename = filename;
+	std::cout << "Opened weather logger at: " << filename << "\n";
+}
+
+WeatherLogger::~WeatherLogger()
+{
+	std::cout << "Closed file on weather logger.\n";
 }
 
 void WeatherLogger::Update(double temp)
 {
-	// we want to capture the temp
-	// access our file
 	// write a line to the file recording the temp.
-	// close the file
+	std::ofstream file(this->Filename, std::ios::app);
+	file << "Weather event: " << temp << "\n";
+	file.close();
 }
